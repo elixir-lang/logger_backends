@@ -1,21 +1,23 @@
 # LoggerBackends
 
-**TODO: Add description**
+Logger Backends functionality for Elixir v1.15+.
+
+[Read the docs to learn more](https://hexdocs.pm/logger_backends).
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `logger_backends` to your list of dependencies in `mix.exs`:
+The package can be installed by adding `logger_backends` to your list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
   [
-    {:logger_backends, "~> 0.1.0"}
+    {:logger_backends, "~> 1.0.0"}
   ]
 end
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at <https://hexdocs.pm/logger_backends>.
+## License
 
+Copyright 2023 Elixir Team.
+
+[Apache License 2.0](LICENSE).

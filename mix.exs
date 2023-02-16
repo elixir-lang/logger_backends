@@ -1,13 +1,17 @@
 defmodule LoggerBackends.MixProject do
   use Mix.Project
 
+  @version "1.0.0"
+  @url "https://github.com/elixir-lang/logger_backends"
+
   def project do
     [
       app: :logger_backends,
-      version: "1.0.0",
+      version: @version,
       elixir: "~> 1.15-dev",
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      deps: deps(),
+      docs: docs()
     ]
   end
 
@@ -18,10 +22,17 @@ defmodule LoggerBackends.MixProject do
     ]
   end
 
+  defp docs do
+    [
+      main: "LoggerBackends",
+      source_ref: "v#{@version}",
+      source_url: @url
+    ]
+  end
+
   defp deps do
     [
-      # {:dep_from_hexpm, "~> 0.3.0"},
-      # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"}
+      {:ex_doc, "~> 0.28", only: :docs}
     ]
   end
 end

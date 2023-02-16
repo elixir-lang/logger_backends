@@ -1,14 +1,14 @@
 defmodule LoggerBackends do
   @moduledoc """
-  `:gen_event`-based backends with overload protection.
+  `:gen_event`-based logger handlers with overload protection.
 
   This module provides backends for Elixir's Logger with
   built-in overload protection. This was the default
   mechanism for hooking into Elixir's Logger until Elixir v1.15.
 
-  Elixir backends run in a separate process which comes with overload
-  protection. All backends run in this same process as a unified front
-  for handling log events.
+  Elixir backends run in a single separate process which comes with
+  overload protection. All backends run in this same process as a
+  unified front for handling log events.
 
   The available backends by default are:
 
