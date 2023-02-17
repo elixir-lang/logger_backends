@@ -9,12 +9,12 @@ on:
 jobs:
   test:
     name: Test (Elixir ${{matrix.elixir}} | Erlang/OTP ${{matrix.otp}})
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     strategy:
       fail-fast: false
       matrix:
         include:
-          - otp: "25.2"
+          - otp: '25'
             elixir: main
             lint: true
     env:
@@ -30,6 +30,7 @@ jobs:
         with:
           otp-version: ${{ matrix.otp }}
           elixir-version: ${{ matrix.elixir }}
+          version-type: 'strict'
 
       - name: Install dependencies
         run: mix do deps.get --only test, deps.compile
