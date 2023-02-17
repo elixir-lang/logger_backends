@@ -1,7 +1,7 @@
 defmodule LoggerBackends.MixProject do
   use Mix.Project
 
-  @version "1.0.0"
+  @version "1.0.0-rc.0"
   @url "https://github.com/elixir-lang/logger_backends"
 
   def project do
