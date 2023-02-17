@@ -11,7 +11,16 @@ defmodule LoggerBackends.MixProject do
       elixir: "~> 1.15-dev",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
-      docs: docs()
+      docs: docs(),
+      preferred_cli_env: [docs: :docs, "hex.publish": :docs],
+
+      # Hex
+      description: "Logger backends functionality for Elixir v1.15+",
+      package: [
+        maintainers: ["Elixir Team"],
+        licenses: ["Apache-2.0"],
+        links: %{"GitHub" => @url}
+      ]
     ]
   end
 
