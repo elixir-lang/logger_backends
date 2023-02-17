@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    name: Test (Elixir ${{matrix.elixir}} | Erlang/OTP ${{matrix.otp}})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - otp: "25.2"
+            elixir: main
+            lint: true
+    env:
+      GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      MIX_ENV: test
+
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v1
+
+      - name: Install OTP and Elixir
+        uses: erlef/setup-beam@v1
+        with:
+          otp-version: ${{ matrix.otp }}
+          elixir-version: ${{ matrix.elixir }}
+
+      - name: Install dependencies
+        run: mix do deps.get --only test, deps.compile
+
+      - name: Check for formatted code
+        if: ${{ matrix.lint }}
+        run: mix format --check-formatted
+
+      - name: Check for unused dependencies
+        if: ${{ matrix.lint }}
+        run: mix do deps.get, deps.unlock --check-unused
+
+      - name: Check for compilation warnings
+        if: ${{ matrix.lint }}
+        run: mix compile --warnings-as-errors
+
+      - name: Run tests
+        run: mix test --trace
