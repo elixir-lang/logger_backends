@@ -25,6 +25,9 @@ defmodule LoggerBackends do
       def start(_type, _args) do
         LoggerBackends.add(MyCustomBackend)
 
+        # ...
+      end
+
   The backend can be configured in your config files:
 
       config :logger, MyCustomBackend,
@@ -151,10 +154,14 @@ defmodule LoggerBackends do
   how to process the existing options.
   """
 
+  @typedoc """
+  A logger handler.
+  """
+  @typedoc since: "1.0.0"
   @type backend :: :gen_event.handler()
 
   @doc """
-  Apply runtime configuration to all backends.
+  Applies runtime configuration to all backends.
 
   See the module doc for more information.
   """
