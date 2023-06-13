@@ -25,13 +25,7 @@ defmodule LoggerBackends do
       def start(_type, _args) do
         LoggerBackends.add(MyCustomBackend)
 
-  The backend can be configured either on the `add_backend/2` call:
-
-      @impl true
-      def start(_type, _args) do
-        LoggerBackends.add(MyCustomBackend, some_config: ...)
-
-  Or in your config files:
+  The backend can be configured in your config files:
 
       config :logger, MyCustomBackend,
         some_config: ...
