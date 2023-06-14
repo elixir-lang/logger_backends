@@ -15,7 +15,7 @@ The package can be installed by adding `logger_backends` to your list of depende
 ```elixir
 def deps do
   [
-    {:logger_backends, "~> 1.0.0-rc"}
+    {:logger_backends, "~> 1.0.0"}
   ]
 end
 ```
