@@ -152,6 +152,12 @@ defmodule LoggerBackends do
   Check the `LoggerBackends.Console` implementation in Elixir's codebase
   for examples on how to handle the recommendations in this section and
   how to process the existing options.
+
+  ## Levels
+
+  For backwards compatibility purposes, a Logger Backend receives only `:debug`,
+  `:info`, `:warn`, and `:error` as log levels. In particular, notice you will
+  need to convert `:warn` to `:warning` if you plan to use the `Logger` functions.
   """
 
   @typedoc """
