@@ -12,7 +12,6 @@ defmodule LoggerBackends.MixProject do
       start_permanent: Mix.env() == :prod,
       deps: deps(),
       docs: docs(),
-      preferred_cli_env: [docs: :docs, "hex.publish": :docs],
 
       # Hex
       description: "Logger backends functionality for Elixir v1.15+",
@@ -29,6 +28,10 @@ defmodule LoggerBackends.MixProject do
       extra_applications: [:logger],
       mod: {LoggerBackends.Application, []}
     ]
+  end
+
+  def cli do
+    [preferred_envs: [docs: :docs, "hex.publish": :docs]]
   end
 
   defp docs do

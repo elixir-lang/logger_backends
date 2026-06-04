@@ -1,7 +1,6 @@
 defmodule LoggerBackends.Watcher do
   @moduledoc false
 
-  require Logger
   use GenServer
 
   def start_link(tuple) do
